@@ -9,8 +9,6 @@ Original file is located at
 Step 1: Install and Set Up Environment
 """
 
-!pip install -U pandas langchain langchain-openai matplotlib seaborn streamlit
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
