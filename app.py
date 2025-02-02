@@ -226,8 +226,7 @@ st.subheader("🤖 AI-Generated Sales Insights")
 if st.button("Generate AI Insights"):
     with st.spinner("Processing AI Insights..."):
     response = llm.invoke("Analyze the sales data and provide key recommendations for CXOs.")
-
-st.write(response)  
+    st.write(response)  
 
 import matplotlib.pyplot as plt
 import seaborn as sns
