@@ -207,7 +207,15 @@ plt.show()
 
  
 # Streamlit App
-st.title("📊 AI-Powered Sales Performance Dashboard")
+
+
+import streamlit as st
+
+st.set_page_config(page_title="AI Sales Dashboard", layout="wide")  # ✅ Ensure proper layout
+
+st.title("📊 AI-Powered Sales Insights Dashboard")
+st.write("Welcome to the AI-powered sales dashboard for CXOs.")
+
 
 # Data Overview
 st.subheader("🔍 Sales Data Overview")
@@ -217,8 +225,8 @@ st.dataframe(df)
 st.subheader("🤖 AI-Generated Sales Insights")
 if st.button("Generate AI Insights"):
     with st.spinner("Analyzing sales data..."):
-       response = llm.invoke("Analyze the sales data and provide key recommendations for CXOs.")
-      st.write(response.content)
+    response = llm.invoke("Analyze the sales data and provide key recommendations for CXOs.")
+  st.write(response.content)
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
