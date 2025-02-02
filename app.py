@@ -136,8 +136,9 @@ print(response)
 from prophet import Prophet
 
 # Convert dataset to a time-series format
-df["Date"] = pd.date_range(start="2023-01-01", periods=len(df), freq="M")
-df_forecast = df[["Date", "Total Sales (in million units)"]]
+df["Date"] = pd.date_range(start="2023-01-01", periods=len(df), freq="ME")
+
+df_forecast = df[["Date", "Total Sales (in million units)"]].copy()
 df_forecast.rename(columns={"Date": "ds", "Total Sales (in million units)": "y"}, inplace=True)
 
 # Train-Test Split
@@ -180,7 +181,7 @@ for index, value in enumerate(df["Total Sales (in million units)"]):
     plt.text(index, value + 1, f"{value:.1f}", ha='center', fontsize=10, color='black')
 
 plt.xticks(rotation=45)
-plt.tight_layout()
+plt.gcf().set_constrained_layout(True)
 plt.show()
 
 """Chart 2: Performance Status Distribution"""
