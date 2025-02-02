@@ -56,7 +56,7 @@ Step 4.1: Set Up AI Model-      AI-Powered Sales Insights Using LangChain
 """
 
 # Set OpenAI API Key
-openai_api_key = "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"  # Replace with your OpenAI Key
+openai_api_key = "OPENAI_API_KEY" 
 llm = ChatOpenAI(model="gpt-4", temperature=0.7, openai_api_key=openai_api_key)
 
 """Step 4.2: Define AI Functions as LangChain Tools"""
@@ -198,7 +198,7 @@ plt.show()
 # df = load_data()
 # 
 # # Initialize AI Model
-# openai_api_key = st.secrets["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"]
+# openai_api_key = st.secrets["OPENAI_API_KEY"]
 # llm = ChatOpenAI(model="gpt-4", temperature=0.7, openai_api_key=openai_api_key)
 # 
 # # Streamlit App
