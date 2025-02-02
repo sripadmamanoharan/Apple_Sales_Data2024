@@ -204,33 +204,40 @@ plt.show()
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
-# import streamlit as st
-# import pandas as pd
-# from langchain_openai import ChatOpenAI
-# 
-# # Load Dataset
-# @st.cache_data
-# def load_data():
-#     return pd.read_csv("apple_sales_2024.csv")
-# 
-# df = load_data()
-# 
-# # Initialize AI Model
-# openai_api_key = st.secrets["OPENAI_API_KEY"]
-# llm = ChatOpenAI(model="gpt-4", temperature=0.7, openai_api_key=openai_api_key)
-# 
-# # Streamlit App
-# st.title("📊 AI-Powered Sales Performance Dashboard")
-# 
-# # Data Overview
-# st.subheader("🔍 Sales Data Overview")
-# st.dataframe(df)
-# 
-# # AI-Generated Insights
-# st.subheader("🤖 AI-Generated Sales Insights")
-# if st.button("Generate AI Insights"):
-#     with st.spinner("Analyzing sales data..."):
-#         response = llm.invoke("Analyze the sales data and provide key recommendations for CXOs.")
-#         st.write(response.content)
-#
+
+ 
+# Streamlit App
+st.title("📊 AI-Powered Sales Performance Dashboard")
+
+# Data Overview
+st.subheader("🔍 Sales Data Overview")
+st.dataframe(df)
+
+# AI-Generated Insights
+st.subheader("🤖 AI-Generated Sales Insights")
+if st.button("Generate AI Insights"):
+    with st.spinner("Analyzing sales data..."):
+       response = llm.invoke("Analyze the sales data and provide key recommendations for CXOs.")
+      st.write(response.content)
+import matplotlib.pyplot as plt
+import seaborn as sns
+import streamlit as st
+
+# Sample Data
+df["Sales Difference"] = df["Total Sales (in million units)"] - df["Target Sales (in million units)"]
+
+st.subheader("📊 Actual vs. Target Sales by Region")
+fig, ax = plt.subplots(figsize=(10, 5))
+sns.barplot(x=df["Region"], y=df["Sales Difference"], ax=ax, palette="coolwarm")
+plt.xticks(rotation=45)
+plt.title("Difference Between Actual and Target Sales by Region")
+st.pyplot(fig)  # ✅ Ensure this line is present
+
+st.subheader("📈 Performance Status Distribution")
+fig, ax = plt.subplots(figsize=(8, 5))
+df["Performance_Status"].value_counts().plot(kind="pie", autopct="%1.1f%%", ax=ax)
+plt.ylabel("")
+plt.title("Performance Status Breakdown")
+st.pyplot(fig)  # ✅ Ensure this line is present
+
 
