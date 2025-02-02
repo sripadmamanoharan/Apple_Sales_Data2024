@@ -1,1 +1,10 @@
 pip install openai langchain langchain-openai streamlit
+streamlit
+pandas
+matplotlib
+seaborn
+openai
+langchain
+langchain-openai
+prophet
+pyngrok
