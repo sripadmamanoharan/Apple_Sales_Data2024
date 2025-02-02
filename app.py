@@ -18,9 +18,6 @@ from langchain.agents import initialize_agent, AgentType
 
 """ Step 2: Load and Explore Sales Data"""
 
-from google.colab import files
-uploaded = files.upload()
-
 # Load CSV file
 df = pd.read_csv("apple_sales_2024.csv")  # Change filename as needed
 
