@@ -209,14 +209,13 @@ plt.show()
 
 import streamlit as st
 
+# ✅ `st.set_page_config()` must be the first Streamlit command
 st.set_page_config(page_title="AI Sales Dashboard", layout="wide")
 
-# ✅ Debugging statements to check execution flow
-st.write("✅ Debugging: App Started Successfully")
-st.write("✅ Checking if Streamlit is running correctly...")
-
+# ✅ Now you can add other Streamlit elements
 st.title("📊 AI-Powered Sales Insights Dashboard")
 st.write("Welcome to the AI-powered sales dashboard for CXOs.")
+
 
 # Data Overview
 st.subheader("🔍 Sales Data Overview")
