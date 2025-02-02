@@ -118,7 +118,6 @@ print(response)
 
 """ Implement Sales Forecasting with Machine Learning- CXOs predict future sales"""
 
-!pip install prophet
 
 from prophet import Prophet
 
