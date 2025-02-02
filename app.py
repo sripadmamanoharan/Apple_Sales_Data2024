@@ -57,6 +57,23 @@ Step 4.1: Set Up AI Model-      AI-Powered Sales Insights Using LangChain
 
 # Set OpenAI API Key
 openai_api_key = "OPENAI_API_KEY" 
+
+import streamlit as st
+from langchain_openai import ChatOpenAI
+
+# Load OpenAI API Key from Streamlit Secrets
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+
+# Debugging: Print API key length
+st.write(f"API Key Length: {len(openai_api_key)} characters")
+
+# Check if API key is loaded
+if not openai_api_key or len(openai_api_key) < 30:
+    st.error("🚨 OpenAI API Key is missing or incorrect! Please update in Streamlit Secrets.")
+else:
+    st.success("✅ OpenAI API Key Loaded Successfully!")
+
+# Initialize OpenAI Model
 llm = ChatOpenAI(model="gpt-4", temperature=0.7, openai_api_key=openai_api_key)
 
 """Step 4.2: Define AI Functions as LangChain Tools"""
