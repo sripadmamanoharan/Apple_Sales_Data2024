@@ -1,6 +1,21 @@
 import streamlit as st
 import pandas as pd
 
+# Load the dataset
+@st.cache_data  # Cache data for faster loading
+def load_data():
+    return pd.read_csv("apple_sales_2024.csv")  # Ensure this filename matches GitHub
+
+df = load_data()  # Load the dataset
+
+# Streamlit App UI
+st.title("📊 AI-Powered Sales Performance Dashboard")
+
+# Show Data
+st.subheader("🔍 Sales Data Overview")
+st.dataframe(df)
+
+
 # Calculate KPIs
 df["Total Sales (in million units)"] = (
     df["iPhone Sales (in million units)"] +
