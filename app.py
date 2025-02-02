@@ -1,12 +1,16 @@
 import streamlit as st
 import pandas as pd
+from langchain_openai import ChatOpenAI  # Ensure correct import
+import os  # For setting environment variables
 
 # Load the dataset
 @st.cache_data  # Cache data for faster loading
 def load_data():
-    return pd.read_csv("apple_sales_2024.csv")  # Ensure this filename matches GitHub
+    return pd.read_csv("apple_sales_2024.csv") 
 
-df = load_data()  # Load the dataset
+df = load_data()  
+
+
 
 # Streamlit App UI
 st.title("📊 AI-Powered Sales Performance Dashboard")
