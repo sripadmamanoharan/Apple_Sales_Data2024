@@ -16,7 +16,7 @@ from langchain_openai import ChatOpenAI
 from langchain.tools import Tool
 from langchain.agents import initialize_agent, AgentType
 
-""" Step 2: Load and Explore Sales Data"""
+Step 2: Load and Explore Sales Data
 
 # Load CSV file
 df = pd.read_csv("apple_sales_2024.csv")  # Change filename as needed
@@ -30,7 +30,7 @@ df.info()
 # Check for missing values
 print(df.isnull().sum())
 
-"""Step 3: Preprocess Data and Compute KPIs"""
+Step 3: Preprocess Data and Compute KPIs
 
 # Compute Total Sales
 df["Total Sales (in million units)"] = (
@@ -50,10 +50,10 @@ df["Performance_Status"] = df["Performance (%)"].apply(lambda x: "Above Target" 
 # Show processed data
 df.head()
 
-"""Step 4: Implement AI-Powered Sales Analysis
+Step 4: Implement AI-Powered Sales Analysis
 
 Step 4.1: Set Up AI Model-      AI-Powered Sales Insights Using LangChain
-"""
+
 
 # Set OpenAI API Key
 openai_api_key = "OPENAI_API_KEY" 
@@ -76,7 +76,7 @@ else:
 # Initialize OpenAI Model
 llm = ChatOpenAI(model="gpt-4", temperature=0.7, openai_api_key=openai_api_key)
 
-"""Step 4.2: Define AI Functions as LangChain Tools"""
+Step 4.2: Define AI Functions as LangChain Tools
 
 # Tool 1: Analyze Sales Data
 def load_sales_data(*args, **kwargs):
@@ -106,7 +106,7 @@ tools = [
     Tool(name="Sales Insights", func=interpret_sales_results, description="Generates insights for CXOs.")
 ]
 
-"""Step 4.3: Initialize AI Agent and Run Analysis"""
+Step 4.3: Initialize AI Agent and Run Analysis
 
 # Create the AI Agent
 agent = initialize_agent(
@@ -122,7 +122,7 @@ response = agent.invoke("Analyze the sales data and provide key insights for bus
 # Print AI-generated insights
 print(response)
 
-"""Run the Updated AI Agent"""
+Run the Updated AI Agent
 
 # AI Agent Execution
 response = agent.invoke("Analyze the sales data and provide key recommendations for CXOs.")
@@ -130,7 +130,7 @@ response = agent.invoke("Analyze the sales data and provide key recommendations 
 # Print the AI-generated insights
 print(response)
 
-""" Implement Sales Forecasting with Machine Learning- CXOs predict future sales"""
+Implement Sales Forecasting with Machine Learning- CXOs predict future sales
 
 
 from prophet import Prophet
@@ -158,10 +158,10 @@ fig = model.plot(forecast)
 plt.title("Sales Forecast for Next 12 Months")
 plt.show()
 
-"""Step 5: Visualize KPI Dashboards
+Step 5: Visualize KPI Dashboards
 
 Chart 1: Actual vs. Target Sales by Region
-"""
+
 
 plt.figure(figsize=(10, 6))
 
@@ -184,7 +184,7 @@ plt.xticks(rotation=45)
 plt.gcf().set_constrained_layout(True)
 plt.show()
 
-"""Chart 2: Performance Status Distribution"""
+Chart 2: Performance Status Distribution
 
 plt.figure(figsize=(6, 6))
 
@@ -200,7 +200,7 @@ plt.title(f"Sales Performance Status \n(Total Records: {len(df)})", fontsize=14,
 plt.ylabel('')
 plt.show()
 
-"""Step 6: Deploy an AI-Powered KPI Dashboard"""
+Step 6: Deploy an AI-Powered KPI Dashboard
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
