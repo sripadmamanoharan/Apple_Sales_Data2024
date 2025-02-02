@@ -207,12 +207,12 @@ plt.show()
  
 # Streamlit App
 
-import streamlit as st
+import streamlit as st  # ✅ Streamlit must be imported first
 
-# ✅ `st.set_page_config()` must be the first Streamlit command
+# ✅ `st.set_page_config()` must be the very first Streamlit command
 st.set_page_config(page_title="AI Sales Dashboard", layout="wide")
 
-# ✅ Now you can add other Streamlit elements
+# Now you can add other Streamlit elements
 st.title("📊 AI-Powered Sales Insights Dashboard")
 st.write("Welcome to the AI-powered sales dashboard for CXOs.")
 
