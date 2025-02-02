@@ -52,7 +52,7 @@ df.head()
 
 Step 4: Implement AI-Powered Sales Analysis
 
-Step 4.1: Set Up AI Model-      AI-Powered Sales Insights Using LangChain
+Step 4.1: Set Up AI- Powered Sales Insights Using LangChain
 
 
 # Set OpenAI API Key
@@ -122,7 +122,7 @@ response = agent.invoke("Analyze the sales data and provide key insights for bus
 # Print AI-generated insights
 print(response)
 
-Run the Updated AI Agent
+# Run the Updated AI Agent
 
 # AI Agent Execution
 response = agent.invoke("Analyze the sales data and provide key recommendations for CXOs.")
@@ -130,8 +130,7 @@ response = agent.invoke("Analyze the sales data and provide key recommendations 
 # Print the AI-generated insights
 print(response)
 
-Implement Sales Forecasting with Machine Learning- CXOs predict future sales
-
+Step 5 : Implement Sales Forecasting with Machine Learning- CXOs predict future sales
 
 from prophet import Prophet
 
@@ -158,7 +157,7 @@ fig = model.plot(forecast)
 plt.title("Sales Forecast for Next 12 Months")
 plt.show()
 
-Step 5: Visualize KPI Dashboards
+Step 6: Visualize KPI Dashboards
 
 Chart 1: Actual vs. Target Sales by Region
 
@@ -200,7 +199,7 @@ plt.title(f"Sales Performance Status \n(Total Records: {len(df)})", fontsize=14,
 plt.ylabel('')
 plt.show()
 
-Step 6: Deploy an AI-Powered KPI Dashboard
+Step 7: Deploy an AI-Powered KPI Dashboard
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
@@ -209,7 +208,13 @@ Step 6: Deploy an AI-Powered KPI Dashboard
 # Streamlit App
 
 import streamlit as st
+
 st.set_page_config(page_title="AI Sales Dashboard", layout="wide")
+
+# ✅ Debugging statements to check execution flow
+st.write("✅ Debugging: App Started Successfully")
+st.write("✅ Checking if Streamlit is running correctly...")
+
 st.title("📊 AI-Powered Sales Insights Dashboard")
 st.write("Welcome to the AI-powered sales dashboard for CXOs.")
 
@@ -224,11 +229,7 @@ if st.button("Generate AI Insights"):
         response = llm.invoke("Analyze the sales data and provide key recommendations for CXOs.")
     st.write(response)  
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-import streamlit as st
-
-# Sample Data
+# Data
 df["Sales Difference"] = df["Total Sales (in million units)"] - df["Target Sales (in million units)"]
 
 st.subheader("📊 Actual vs. Target Sales by Region")
