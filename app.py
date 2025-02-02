@@ -208,14 +208,10 @@ plt.show()
  
 # Streamlit App
 
-
 import streamlit as st
-
-st.set_page_config(page_title="AI Sales Dashboard", layout="wide") 
-
+st.set_page_config(page_title="AI Sales Dashboard", layout="wide")
 st.title("📊 AI-Powered Sales Insights Dashboard")
 st.write("Welcome to the AI-powered sales dashboard for CXOs.")
-
 
 # Data Overview
 st.subheader("🔍 Sales Data Overview")
@@ -225,7 +221,7 @@ st.dataframe(df)
 st.subheader("🤖 AI-Generated Sales Insights")
 if st.button("Generate AI Insights"):
     with st.spinner("Processing AI Insights..."):
-    response = llm.invoke("Analyze the sales data and provide key recommendations for CXOs.")
+        response = llm.invoke("Analyze the sales data and provide key recommendations for CXOs.")
     st.write(response)  
 
 import matplotlib.pyplot as plt
